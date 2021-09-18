@@ -12,9 +12,9 @@ PKG_RELEASE:=$(AUTORELEASE)
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL=$(PROJECT_GIT)/project/procd.git
-PKG_SOURCE_DATE:=2021-05-05
-PKG_SOURCE_VERSION:=021ece84de430fca988acd6934f6046ea59d8c37
-PKG_MIRROR_HASH:=edbe464cadbae000f4a48a6f1e6a0f5d27ae3ad521e308205252ad89639b6f9d
+PKG_SOURCE_DATE:=2021-09-15
+PKG_SOURCE_VERSION:=1eb4371e2534296d04580cb8b9cb5baa5f07e27d
+PKG_MIRROR_HASH:=d0e61032482eebb225ffbca8034b3d838eaa3db0dcd9b0166e106e729ce5320c
 CMAKE_INSTALL:=1
 
 PKG_LICENSE:=GPL-2.0
@@ -90,7 +90,7 @@ endef
 define Package/uxc
   SECTION:=base
   CATEGORY:=Base system
-  DEPENDS:=+procd-ujail +libubus +libubox +libblobmsg-json
+  DEPENDS:=+procd-ujail +libubus +libubox +libblobmsg-json +blockd +rpcd
   TITLE:=OpenWrt container management
   MAINTAINER:=Daniel Golle <daniel@makrotopia.org>
 endef

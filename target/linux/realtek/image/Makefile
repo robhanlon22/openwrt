@@ -24,7 +24,7 @@ define Device/Default
   DEVICE_DTS = $$(SOC)_$(1)
   IMAGES := sysupgrade.bin
   IMAGE/sysupgrade.bin := append-kernel | pad-to 64k | append-rootfs | pad-rootfs | \
-	append-metadata | check-size
+	check-size | append-metadata
 endef
 
 # "NGE" refers to the uImage magic
@@ -152,5 +152,14 @@ define Device/zyxel_gs1900-8hp-v2
   DEVICE_PACKAGES += lua-rs232
 endef
 TARGET_DEVICES += zyxel_gs1900-8hp-v2
+
+define Device/zyxel_gs1900-24hp-v2
+  $(Device/zyxel_gs1900)
+  SOC := rtl8382
+  DEVICE_MODEL := GS1900-24HP
+  DEVICE_VARIANT := v2
+  ZYXEL_VERS := ABTP
+endef
+TARGET_DEVICES += zyxel_gs1900-24hp-v2
 
 $(eval $(call BuildImage))
